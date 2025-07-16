@@ -85,7 +85,6 @@ async function fetchPostMeta(): Promise<
     });
     if (offset + limit >= totalCount) break;
   }
-  console.log(map);
   if (map.size === 0) {
     throw new Error("No posts found in microCMS");
   }
@@ -104,7 +103,10 @@ async function fetchMonthlyViews(): Promise<
     dimensionFilter: {
       filter: {
         fieldName: "pagePath",
-        stringFilter: { matchType: "BEGINS_WITH", value: `/${MICROCMS_ENDPOINT}/` },
+        stringFilter: {
+          matchType: "BEGINS_WITH",
+          value: `/${MICROCMS_ENDPOINT}/`,
+        },
       },
     },
     limit: 100000,
@@ -123,7 +125,6 @@ async function fetchMonthlyViews(): Promise<
 (async () => {
   const metaMap = await fetchPostMeta();
   const pvRows = await fetchMonthlyViews();
-  console.log("Fetched monthly views:", pvRows);
 
   // pvRows already contains all the data we need for long format
 
