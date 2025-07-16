@@ -1,0 +1,28 @@
+name: Update monthly PV stats
+
+on:
+  schedule:
+    - cron: "0 18 * * *" # JST 03:00
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with: 
+          node-version: 20
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run start:monthly
+        env:
+          GA_PROPERTY_ID: ${{ secrets.GA_PROPERTY_ID }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+          MICROCMS_SERVICE: ${{ secrets.MICROCMS_SERVICE }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+          MICROCMS_ENDPOINT: ${{ secrets.MICROCMS_ENDPOINT }}
+          SHEETS_ID: ${{ secrets.SHEETS_ID }}

@@ -1,0 +1,20 @@
+{
+  "name": "microcms-analytics",
+  "version": "1.0.0",
+  "description": "microCMS blog analytics with Google Analytics and Sheets integration",
+  "scripts": {
+    "start:monthly": "tsx src/update-monthly-stats.ts"
+  },
+  "dependencies": {
+    "@google-analytics/data": "^5.2.0",
+    "googleapis": "^153.0.0",
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "@types/node": "^24.0.14",
+    "@types/dotenv": "^8.2.0"
+  }
+}
