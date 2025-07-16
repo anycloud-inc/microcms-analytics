@@ -14,14 +14,14 @@ jobs:
         with:
           version: 10.13.1
       - uses: actions/setup-node@v4
-        with: 
+        with:
           node-version: 20
-          cache: 'pnpm'
+          cache: "pnpm"
       - run: pnpm install --frozen-lockfile
       - run: pnpm run start:monthly
         env:
           GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
-          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
           MICROCMS_SERVICE: ${{ vars.MICROCMS_SERVICE }}
           MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
           MICROCMS_ENDPOINT: ${{ vars.MICROCMS_ENDPOINT }}
