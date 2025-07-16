@@ -2,6 +2,7 @@
   "name": "microcms-analytics",
   "version": "1.0.0",
   "description": "microCMS blog analytics with Google Analytics and Sheets integration",
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "start:monthly": "tsx src/update-monthly-stats.ts"
   },
