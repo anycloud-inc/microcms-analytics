@@ -20,9 +20,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run start:monthly
         env:
-          GA_PROPERTY_ID: ${{ secrets.GA_PROPERTY_ID }}
+          GA_PROPERTY_ID: ${{ vars.GA_PROPERTY_ID }}
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS_JSON }}
-          MICROCMS_SERVICE: ${{ secrets.MICROCMS_SERVICE }}
+          MICROCMS_SERVICE: ${{ vars.MICROCMS_SERVICE }}
           MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
-          MICROCMS_ENDPOINT: ${{ secrets.MICROCMS_ENDPOINT }}
-          SHEETS_ID: ${{ secrets.SHEETS_ID }}
+          MICROCMS_ENDPOINT: ${{ vars.MICROCMS_ENDPOINT }}
+          SHEETS_ID: ${{ vars.SHEETS_ID }}

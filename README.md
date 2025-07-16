@@ -45,16 +45,21 @@ Google Analytics 4 と microCMS のデータを統合し、月次 PV 数を Goog
 
 ### 4. GitHub 設定
 
-#### 4.1 リポジトリの Secrets 設定
+#### 4.1 リポジトリの Secrets と Variables 設定
 
 リポジトリの「Settings」→「Secrets and variables」→「Actions」で以下を追加：
 
+**Secrets（機密情報）：**
 | Secret 名                 | 値             | 説明                                            |
 | ------------------------- | -------------- | ----------------------------------------------- |
-| `GA_PROPERTY_ID`          | `123456789`    | GA4 のプロパティ ID                             |
 | `GOOGLE_CREDENTIALS_JSON` | `{...}`        | サービスアカウントの JSON 全文                  |
-| `MICROCMS_SERVICE`        | `your-service` | microCMS のサブドメイン                         |
 | `MICROCMS_API_KEY`        | `xxxxx`        | microCMS の API キー                            |
+
+**Variables（設定値）：**
+| Variable 名               | 値             | 説明                                            |
+| ------------------------- | -------------- | ----------------------------------------------- |
+| `GA_PROPERTY_ID`          | `123456789`    | GA4 のプロパティ ID                             |
+| `MICROCMS_SERVICE`        | `your-service` | microCMS のサブドメイン                         |
 | `MICROCMS_ENDPOINT`       | `articles`     | microCMS の API エンドポイント（デフォルト：articles） |
 | `SHEETS_ID`               | `1abc...xyz`   | スプレッドシート ID（URL の`/d/`と`/edit`の間） |
 
